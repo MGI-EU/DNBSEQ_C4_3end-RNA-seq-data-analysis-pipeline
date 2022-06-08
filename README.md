@@ -106,10 +106,10 @@ barcode_counts_raw.txt  Log.out               reads.fq.gz       SJ.out.tab      
 #### User need to install manually
 
 - Java
+- Cromwell-35
 
 #### Pre-compiled executables within binary releases
 
-- Cromwell-35
 - PISA (v0.8)
 - sambada(v0.7.0)
 - STAR(v2.7.9a)
