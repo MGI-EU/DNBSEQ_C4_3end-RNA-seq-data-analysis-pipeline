@@ -232,7 +232,7 @@ Raw fastq files containing 3'end RNA sequence can be taken as input fastq.
 ### 5.1 Without Docker 
 
 ```shell
-git clone https://github.com/MGI-EU/DNBSEQ_C4_3end-RNA-seq-data-analysis-pipeline/releases/tag/v1.0.0
+git clone 
 tar -xzvf v1.0.0.tar.gz
 ```
 ### 5.2 With Docker
