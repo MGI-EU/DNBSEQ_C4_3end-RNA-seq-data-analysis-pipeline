@@ -10,7 +10,7 @@ This is an open source pipeline used for the QC and analysis of 3'RNA-seq data. 
 
 ### 1.2 Workflow
 
-![workflow](./3end-RNA-seq_workflow.jpg)
+![workflow](https://github.com/MGI-EU/DNBSEQ_C4_3end-RNA-seq-data-analysis-pipeline/blob/main/3end-RNA-seq_workflow.jpg)
 
 ## 2. Overview
 
