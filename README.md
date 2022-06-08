@@ -23,6 +23,7 @@ Here we will provide a demo data for testing, the demo data is not avaliable now
 #### 2.1.2 Demo execution
 
 run with docker:
+
 step1: check config.json files
 
 ```shell
@@ -120,21 +121,22 @@ barcode_counts_raw.txt  Log.out               reads.fq.gz       SJ.out.tab      
 
 #### Download Ready-made datasets
 A database containing the STAR index for reference genome and its annotation files is needed.
-Here we provide 2 ready made datsets.
-- Human (Grch38);
-- Danio rerio (GRCz11)
 
-#### or you can build the database yourself
-You can also construct the database on your own.
+you can build the database accodring to the follwoing steps:
+
 
 ```shell
-# Creat the database directory
-mkdir database/example_database && cd database/example_database
-mkdir fasta && mkdir gtf && mkdir mkdir 
+# Create the database directory
+cd database
+mdkir gtf && cp path/to/gtf/example_genes.gtf gtf/genes.gtf
+mkdir star_index
+mkdir fasta
 # Copy or download the prepared fasta file and gene gtf file to the corresponding directory
-# Build STAR index
 cp path/to/gtf/example_genes.gtf gtf/genes.gtf.gtf
-PATH/TO/STAR --runThreadN 8 --runMode genomeGenerate --genomeDir star_index --genomeFastaFiles ./fasta/example_genome.fa --sjdbGTFfile ./gtf/genes.gtf
+cp path/to/gtf/example.fa fasta/example.fa
+# Create star index
+cd star_index
+PATH/TO/STAR --runThreadN 8 --runMode genomeGenerate --genomeDir star_index --genomeFastaFiles ../fasta/example_genome.fa --sjdbGTFfile ../gtf/genes.gtf
 ```
 **Notes:**
 
