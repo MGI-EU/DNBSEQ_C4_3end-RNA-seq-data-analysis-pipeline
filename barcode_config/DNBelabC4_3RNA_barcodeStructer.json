@@ -1,0 +1,22 @@
+{
+    "cell barcode tag":"CB",
+    "cell barcode":[
+	{
+	    "location":"R1:1-10",
+	    "distance":"0",
+	    "white list":[
+	"TAGGTCCGAT",
+        "GGACGGAATC",
+        "CTTACTGCCG",
+        "ACCTAATTGA"
+	    ]
+    }
+    ],
+    "UMI tag":"UB",
+    "UMI":{
+	"location":"R1:11-20"
+    },
+    "read 1":{
+	"location":"R2:1-100"
+    }
+}
