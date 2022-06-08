@@ -33,7 +33,7 @@ cat config.json
     "main.fastq2": "/tmp/C4_3endRNAseq/rawfq/Demo_2.fq,gz",
     "main.root": "/tmp/C4_3endRNAseq",
     "main.gtf": "/tmp/C4_3endRNAseq/database/gtf/genes.gtf",
-    "main.ID": "V300064040_L01_5M-1",
+    "main.ID": "Demo",
     "main.outdir": "/opt",
     "main.config": "/tmp/C4_3endRNAseq/barcode_config/DNBelabC4_3RNA_barcodeStructer.json",
     "main.Rscript":"/usr/bin/Rscript",
