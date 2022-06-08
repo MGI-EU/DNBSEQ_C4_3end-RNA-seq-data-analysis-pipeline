@@ -287,6 +287,7 @@ sh -c "cd /tmp/ && /bin/bash /tmp/C4_3endRNAseq/script/run.sh"
 
 ## 7. FAQ
 Q1: What kind of data is suitable for this pipeline?
+
 A1: Currently this pipeline is best suitable for the data gererated by the MGI 3endRNAseq kits,if you want to use it to analysis data from other 3end RNAseq data(like Lexogen), it is also possible, but you need to adjusted the barcode config file accorrding to the kits.
 
 ## 8. To be updated
