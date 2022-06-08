@@ -1,7 +1,7 @@
 # DNBSEQ_C4_3end-RNA-seq-data-analysis-pipeline
 ## 1. Introduction
 
-This is an open source pipeline used for the QC and analysis of 3'RNA-seq data. It is adjusted from the original version of DNBelab C Series Single-Cell RNA Analysis pipeline released by MGI-tech-bioinformatics (https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_scRNA-analysis-software) and the docker/singularity version is released by MGI-EU(https://github.com/MGI-EU/Docker-image-of-DNBelabC4_scRNA-analysis).
+This is an open source pipeline used for the QC and analysis of 3end RNA-seq data. It is adjusted from the original version of DNBelab C Series Single-Cell RNA Analysis pipeline released by MGI-tech-bioinformatics (https://github.com/MGI-tech-bioinformatics/DNBelab_C_Series_scRNA-analysis-software) and the docker/singularity version is released by MGI-EU(https://github.com/MGI-EU/Docker-image-of-DNBelabC4_scRNA-analysis).
 
 ### 1.1 Purpose
 
