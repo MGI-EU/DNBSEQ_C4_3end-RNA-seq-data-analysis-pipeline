@@ -172,7 +172,7 @@ cat config.json
     "main.ExperimentalTime":"2022-05-20"                    
 }
 ```
-**Note: if you use docker version (for which we highly recommend), the path to root directory is fixed, and you shall not change any of the "/tmp/C4_3endRNAseq/" in the the config file (As shown here).**
+**Note:** if you use docker version (for which we highly recommend), the path to root directory is fixed, and you shall not change any of the "/tmp/C4_3endRNAseq/" in the the config file (As shown here).
 
 ```json
 {
