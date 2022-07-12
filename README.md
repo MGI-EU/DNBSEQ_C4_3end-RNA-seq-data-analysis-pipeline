@@ -213,7 +213,7 @@ You may find the specific meaning of each parameters in config files in the foll
 
 
 
-#### 4.2.2 Configure file for barcode Structer
+#### 4.2.2 Configure file for barcode structure
 
 This pipeline need an extra configure file in JSON format, containing the information of the sample barcode as well as Unique Molecular Barcode(UMI) in read1 fastq file.
 
@@ -252,7 +252,7 @@ Raw fastq files containing 3'end RNA sequence can be taken as input fastq.
 
 ### 4.4 Sample_barcode_list
 This is a csv file illustrating the correspondence between samples and labels. the barcode and sample name should be sperated with ",". Following is an example:
-
+This file need be put under the data_config directory.
 ```txt
 TAGGTCCGAT-1,sample1
 GGACGGAATC-1,sample2
