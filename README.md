@@ -36,7 +36,6 @@ cat config.json
     "main.ID": "Demo",
     "main.outdir": "/Path/to/output/directory",
     "main.config": "/path/to/C4_3endRNAseq/barcode_config/DNBelabC4_3RNA_barcodeStructer.json",
-    "main.Rscript":"/path/to/Rscript",
     "main.refdir": "/path/to/star_index",
     "main.Python3": "/path/to/python3",
     "main.species":"Danio_rerio",
