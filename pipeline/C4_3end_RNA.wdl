@@ -4,7 +4,6 @@ workflow main {
   String fastq2
   String outdir
   String refdir
-  String Rscript
   String Python3
   String ID
   String gtf
