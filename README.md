@@ -76,13 +76,13 @@ Then in the output file you will get following results:
 
 ```shell
 outs:
-final.bam  raw_count_mtx.tsv.gz
+final.bam  raw_count_mtx_sampleID.tsv.gz
 
 report:
 alignment_report.csv  annotated_report.csv  sequencing_report.csv
 
 symbol:
-fastq2bam_sigh.txt  makedir_sigh.txt  parseFastq_sigh.txt  sampleCount_sigh.txt  sortBam_sigh.txt
+fastq2bam_sigh.txt  makedir_sigh.txt  parseFastq_sigh.txt  sampleCount_sigh.txt  sortBam_sigh.txt   countMatrix_sigh.txt
 
 temp:
 aln.bam                 barcode_raw_list.txt  Log.progress.out  sambamba-pid538-pntk/  sorted.bam
@@ -106,12 +106,15 @@ barcode_counts_raw.txt  Log.out               reads.fq.gz       SJ.out.tab      
 
 #### User need to install manually
 
-- Java
-- Cromwell-35
+- [Java](https://www.oracle.com/java/)
+- [Cromwell-35](https://github.com/broadinstitute/cromwell/releases)
+- [python3](https://www.python.org/downloads/) (3.6+) # with following Python3 packages installed
+  - numpy
+  - pandas
 
 #### Pre-compiled executables within binary releases
 
-- PISA (v0.8)
+- PISA (v0.12)
 - sambada(v0.7.0)
 - STAR(v2.7.9a)
 
@@ -133,7 +136,7 @@ mdkir gtf && cp path/to/gtf/example_genes.gtf gtf/genes.gtf
 mkdir star_index
 mkdir fasta
 # Copy or download the prepared fasta file and gene gtf file to the corresponding directory
-cp path/to/gtf/example_genes.gtf gtf/genes.gtf.gtf
+cp path/to/gtf/example_genes.gtf gtf/genes.gtf
 cp path/to/gtf/example.fa fasta/example.fa
 # Create star index
 cd star_index
@@ -154,23 +157,42 @@ An config.json file containing all the input parameters is needed for running th
 ```json
 cat config.json
 {
-    "main.fastq1": "/tmp/C4_3endRNAseq/rawfq/Demo_1.fq.gz",
-    "main.fastq2": "/tmp/C4_3endRNAseq/rawfq/Demo_2.fq.gz",
+    "main.fastq1": "/path/to/Demo_1.fq.gz",
+    "main.fastq2": "/path/to/Demo_2.fq.gz",
     "main.root": "/Path/to/working/C4_3endRNAseq",
     "main.gtf": "/Path/to/database/gtf/genes.gtf",
     "main.ID": "Demo",
     "main.outdir": "/Path/to/output/directory",
     "main.config": "/path/to/C4_3endRNAseq/barcode_config/DNBelabC4_3RNA_barcodeStructer.json",
-    "main.Rscript":"/path/to/Rscript",
     "main.refdir": "/path/to/star_index",
     "main.Python3": "/path/to/python3",
     "main.species":"Danio_rerio",
     "main.original":"Embryo cell",
+    "main.Sample_barcode_list": "/path/to/data_config/sample_barcode.csv",
     "main.SampleTime":"2022-05-20",
     "main.ExperimentalTime":"2022-05-20"                    
 }
 ```
+** Note: if you use docker version (for which we highly recommend), the path to root directory is fixed, and you shall not change any of the "/tmp/C4_3endRNAseq/" in the the config file(As shown here).**
 
+```json
+{
+    "main.fastq1": "/tmp/C4_3endRNAseq/rawfq/demo_1.fq.gz",
+    "main.fastq2": "/tmp/C4_3endRNAseq/rawfq/demo_2.fq.gz",
+    "main.root": "/tmp/C4_3endRNAseq",
+    "main.gtf": "/tmp/C4_3endRNAseq/database/gtf/genes.gtf",
+    "main.ID": "demo",
+    "main.outdir": "/opt",
+    "main.config": "/tmp/C4_3endRNAseq/barcode_config/DNBelabC4_3RNA_barcodeStructer.json",
+    "main.Sample_barcode_list": "/tmp/C4_3endRNAseq/data_config/sample_barcode.csv",
+    "main.refdir": "/tmp/C4_3endRNAseq/database/star_index",
+    "main.Python3": "/usr/bin/python3",
+    "main.species":"Danio_rerio",
+    "main.original":"None",
+    "main.SampleTime":"2022-06-05",
+    "main.ExperimentalTime":"2022-06-05"
+}
+```
 You may find the specific meaning of each parameters in config files in the following table.
 
 | Parameter | Type | Description |
@@ -181,14 +203,15 @@ You may find the specific meaning of each parameters in config files in the foll
 | main.root | Directory | MANDATORY. Directory of this pipeline. |
 | main.outdir | string | MANDATORY. The file path you want to output data. | 
 | main.config | JSON file | MANDATORY. config file illustrating the structer of UMI and sample barcode. | 
+| main.Sample_barcode_list | csv file | MANDATORY. The file illustrating the correspondence between samples and labels. |
 | main.refdir | PATH | MANDATORY. STAR index directory of genome reference. | 
 | main.gtf | PATH | MANDATORY. gtf file of genome reference. | 
-| main.Rscript | PATH | MANDATORY.Path to Rscript. | 
 | main.Python3 | PATH | MANDATORY. Path to Python3.|
 | main.species| String| Optional, default: Null. Species. |
 | main.original | String | Optional, default: Null. original. |
 | main.SampleTime | String| Optional, default: Null. original. |
 | main.SampleTime| string | Optional, default: Null. Experimental time. |
+
 
 
 #### 4.2.2 Configure file for barcode Structer
@@ -201,7 +224,7 @@ Predefined white-list is useful to correct barcodes and improve the number of re
 
 ```json
 {
-    "cell barcode tag":"CB",
+    "cell barcode tag":"SB",
     "cell barcode":[
         {
             "location":"R1:1-10",
@@ -227,6 +250,20 @@ Predefined white-list is useful to correct barcodes and improve the number of re
 ### 4.3 Raw Fastq
 
 Raw fastq files containing 3'end RNA sequence can be taken as input fastq.
+
+### 4.4 Sample_barcode_list
+This is a csv file illustrating the correspondence between samples and labels. the barcode and sample name should be sperated with ",". Following is an example:
+
+```txt
+TAGGTCCGAT-1,sample1
+GGACGGAATC-1,sample2
+CTTACTGCCG-1,sample3
+ACCTAATTGA-1,sample4
+CGGCAATCCG-1,sample5
+ATCAGGATTC-1,sample6
+TCATTCCAGA-1,sample7
+GATGCTGGAT-1,sample8
+```
 
 ## 5. Installation
 
