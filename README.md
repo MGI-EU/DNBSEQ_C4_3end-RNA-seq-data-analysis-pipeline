@@ -30,19 +30,20 @@ step1: check config.json files
 cat config.json
 {
     "main.fastq1": "/tmp/C4_3endRNAseq/rawfq/Demo_1.fq.gz",
-    "main.fastq2": "/tmp/C4_3endRNAseq/rawfq/Demo_2.fq,gz",
-    "main.root": "/tmp/C4_3endRNAseq",
-    "main.gtf": "/tmp/C4_3endRNAseq/database/gtf/genes.gtf",
+    "main.fastq2": "/tmp/C4_3endRNAseq/rawfq/Demo_2.fq.gz",
+    "main.root": "/Path/to/working/C4_3endRNAseq",
+    "main.gtf": "/Path/to/database/gtf/genes.gtf",
     "main.ID": "Demo",
-    "main.outdir": "/opt",
-    "main.config": "/tmp/C4_3endRNAseq/barcode_config/DNBelabC4_3RNA_barcodeStructer.json",
-    "main.Rscript":"/usr/bin/Rscript",
-    "main.refdir": "/tmp/C4_3endRNAseq/database/star_index",
-    "main.Python3": "/usr/bin/python3",
+    "main.outdir": "/Path/to/output/directory",
+    "main.config": "/path/to/C4_3endRNAseq/barcode_config/DNBelabC4_3RNA_barcodeStructer.json",
+    "main.Rscript":"/path/to/Rscript",
+    "main.refdir": "/path/to/star_index",
+    "main.Python3": "/path/to/python3",
     "main.species":"Danio_rerio",
     "main.original":"Embryo cell",
+    "main.Sample_barcode_list": "/tmp/C4_3endRNAseq/data_config/sample_barcode.csv",
     "main.SampleTime":"2022-05-20",
-    "main.ExperimentalTime":"2022-05-20"
+    "main.ExperimentalTime":"2022-05-20"                    
 }
 
 ```
