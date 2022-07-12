@@ -11,6 +11,7 @@
     "main.Python3": "/path/to/python3",
     "main.species":"Danio_rerio",
     "main.original":"Embryo cell",
+    "main.Sample_barcode_list": "/tmp/C4_3endRNAseq/data_config/sample_barcode.csv",
     "main.SampleTime":"2022-05-20",
     "main.ExperimentalTime":"2022-05-20"                    
 }
