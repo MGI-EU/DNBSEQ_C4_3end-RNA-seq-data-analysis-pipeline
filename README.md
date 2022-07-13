@@ -275,7 +275,7 @@ tar -xzvf v1.0.0.tar.gz
 ### 5.2 With Docker
 
 ```shell
-docker pull dingrp/c4_3end_rnaseq:latest
+docker pull dingrp/c4_3end_rnaseq:v2.1
 
 ```
 ## 6. Usage
