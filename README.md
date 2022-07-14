@@ -334,3 +334,4 @@ A1: Currently this pipeline is best suitable for the data gererated by the MGI 3
 #### 1) Upload demo data;
 #### 2) Generate a html report.
 #### 3) An internal script to directly run the Lexogen data.
+#### 4) Internal process to automatically filter the unused barcoded in the white list.
