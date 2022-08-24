@@ -320,7 +320,7 @@ docker run --rm --cpus=64 --memory=64g \
 -v ${BARCODE_CONFIG_LOCAL}:/tmp/C4_3endRNAseq/barcode_config \
 -v ${DB_LOCAL}:/tmp/C4_3endRNAseq/database \
 -v ${RESULT_DIR}:/opt \
-dingrp/c4_3end_rnaseq:latest \
+dingrp/c4_3end_rnaseq:v2.1 \
 sh -c "cd /tmp/ && /bin/bash /tmp/C4_3endRNAseq/script/run.sh"
 ```
 
